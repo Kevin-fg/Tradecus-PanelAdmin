@@ -1,0 +1,19 @@
+/TRADECUS
+  /backend
+    /controllers
+    /models
+    /routes
+    /utils
+    -.env
+    - index.js
+  /frontend
+    /src
+        /components
+         /pages
+         /routes
+         /services
+         /styles
+         /utils
+    -app.css
+    -app.js
+    -index.js
