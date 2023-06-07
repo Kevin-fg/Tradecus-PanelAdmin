@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../../utils/config';
 import '../../styles/tour/deleteTour.css';
 import { useNavigate } from "react-router-dom";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteTour = () => {
     const { id } = useParams();
@@ -19,9 +20,9 @@ const DeleteTour = () => {
     const handleDelete = async () => {
         try {
             await axios.delete(`${BASE_URL}/tours/${id}`);
-            alert('Tour eliminado exitosamente!');
+            toast.success('Tour eliminado exitosamente!');
         } catch (error) {
-            alert('Ocurrió un error al eliminar el tour');
+            toast.error('Ocurrió un error al eliminar el tour');
         }
     };
 

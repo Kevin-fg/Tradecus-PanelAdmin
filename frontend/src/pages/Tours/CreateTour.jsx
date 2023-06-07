@@ -3,6 +3,8 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/config';
 import '../../styles/tour/createTour.css';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateTour = () => {
     const [tourData, setTourData] = useState({
@@ -35,7 +37,7 @@ const CreateTour = () => {
         event.preventDefault();
         try {
             await axios.post(`${BASE_URL}/tours`, tourData);
-            alert('Tour creado exitosamente!');
+            toast.success('Tour creado exitosamente!');
             setTourData({
                 title: '',
                 city: '',
@@ -48,7 +50,7 @@ const CreateTour = () => {
                 featured: false
             });
         } catch (error) {
-            alert('Ocurrió un error al crear el tour');
+            toast.error('Ocurrió un error al crear el tour');
         }
     };
 

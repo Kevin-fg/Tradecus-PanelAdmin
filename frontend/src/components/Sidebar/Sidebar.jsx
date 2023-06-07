@@ -12,6 +12,8 @@ function Sidebar() {
                 <li className="sidebar__item"><a href="/manage_users">Users</a></li>
                 <li className="sidebar__item"><a href="/manage_reviews">Reviews</a></li>
                 <li className="sidebar__item"><a href="/manage_bookings">Bookings</a></li>
+                <li className="sidebar__item"><a href="/manage_subscribes">Subscribes</a></li>
+                <li className="sidebar__item"><a href="/manage_contacts">Contacts</a></li>
                 <li className="sidebar__item"><a href="/settings">Configuración</a></li>
                 {/* Agrega más enlaces según sea necesario */}
             </ul>

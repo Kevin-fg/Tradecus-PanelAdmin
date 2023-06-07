@@ -1,9 +1,15 @@
 import express from 'express';
-import { createReview } from '../controllers/reviewController.js';
-import { verifyUser } from '../utils/verifyToken.js';
+import { createReview, getReviews , deleteReview  } from '../controllers/reviewController.js';
+//import { verifyUser } from '../utils/verifyToken.js';
 
 const router = express.Router();
 
-router.post('/:tourId', verifyUser, createReview);
+router.post('/:tourId', createReview);
+
+// Ruta para obtener todas las revisiones de un tour específico
+router.get('/', getReviews);
+
+router.delete('/:reviewId', deleteReview);
+
 
 export default router;

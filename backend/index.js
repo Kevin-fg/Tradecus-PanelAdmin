@@ -9,7 +9,9 @@ import userRoute from './routes/users.js';
 import authRoute from './routes/auth.js';
 import reviewRoute from './routes/reviews.js';
 import bookingRoute from './routes/bookings.js';
-import subscribeRoute from './routes/subscribe.js';
+import dniRoutes from './routes/dni.js';
+import subscribeRoute from './routes/subscribes.js';
+import contactRoutes  from './routes/contacts.js';
 
 dotenv.config();
 const app = express();
@@ -42,7 +44,9 @@ app.use('/api/v1/tours', tourRoute);
 app.use('/api/v1/users', userRoute);
 app.use('/api/v1/review', reviewRoute);
 app.use('/api/v1/booking', bookingRoute);
+app.use('/api/v1/dni', dniRoutes);
 app.use('/api/v1/subscribe', subscribeRoute);
+app.use('/api/v1/contact', contactRoutes);
 
 
 // Error handling middleware

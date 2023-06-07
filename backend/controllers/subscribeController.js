@@ -1,5 +1,15 @@
 import Subscriber from '../models/Subscribe.js';
 
+export const getSubscribers = async (req, res) => {
+    try {
+        const subscribers = await Subscriber.find({});
+        return res.status(200).json(subscribers);
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+};
+
+
 export const subscribe = async (req, res) => {
     const { email } = req.body;
 

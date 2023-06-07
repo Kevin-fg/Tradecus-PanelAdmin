@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../../utils/config';
 import '../../styles/tour/editTour.css';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditTour = () => {
 
@@ -30,9 +32,12 @@ const EditTour = () => {
 
     useEffect(() => {
         const fetchTour = async () => {
-            const res = await axios.get(`${BASE_URL}/tours/${id}`);
-            console.log(res.data);  // Add this line
-            setTourData(res.data.data);  // Here, use res.data.data instead of res.data
+            try {
+                const res = await axios.get(`${BASE_URL}/tours/${id}`);
+                setTourData(res.data.data);
+            } catch (error) {
+                toast.error('Ocurrió un error al obtener el tour');
+            }
         };
         fetchTour();
     }, [id]);
@@ -53,9 +58,9 @@ const EditTour = () => {
         event.preventDefault();
         try {
             await axios.put(`${BASE_URL}/tours/${id}`, tourData);
-            alert('Tour actualizado exitosamente!');
+            toast.success('Tour actualizado exitosamente!');
         } catch (error) {
-            alert('Ocurrió un error al actualizar el tour');
+            toast.error('Ocurrió un error al actualizar el tour');
         }
     };
 
